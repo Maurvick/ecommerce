@@ -1,0 +1,40 @@
+.search input {
+  width: 99%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart span {
+  border: 2px solid #ccc;
+  padding: 5px;
+}
+
+svg {
+  width: 2%;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.sorting {
+  display: flex;
+  margin-top: 10px;
+  gap: 5px;
+}
