@@ -1,0 +1,22 @@
+<div class="modal-overlay" (click)="closeCart()" (keypress)="closeCart()"></div>
+<div class="modal-content">
+  <div class="modal-header">
+    <h2>Cart</h2>
+    <hr />
+  </div>
+  <div class="modal-body">
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <!-- <img src="{{ item.image }}" class="cart-item-image" alt /> -->
+        <div class="cart-item-details">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.price }}$</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="checkoutBtn">Checkout</button>
+      <div class="totalPrice">Total: {{ calculateTotalPrice() }}$</div>
+    </div>
+  </div>
+</div>
