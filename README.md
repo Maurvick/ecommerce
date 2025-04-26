@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
 
+# Demo 
+
+https://maurvick.github.io/ecommerce/
+
+# How to publish
+
+1. Install packages: ng add angular-cli-ghpages
+2. Write following commands into console: ng build --base-href "https://YOURPROFILE.github.io/PROJECTNAME/" , ng deploy
+3. ???
+4. PROFIT
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
