@@ -3,7 +3,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { CartService } from '../../../services/cart/cart.service';
-import { IProduct } from '../../../services/product/product.model';
+import { Product } from '../../../services/product/product.model';
 
 @Component({
   selector: 'app-cart-modal',
@@ -13,7 +13,7 @@ import { IProduct } from '../../../services/product/product.model';
   styleUrl: './cart-modal.component.css',
 })
 export class CartModalComponent {
-  cartItems: IProduct[] = [];
+  cartItems: Product[] = [];
 
   @Output() close: EventEmitter<void> = new EventEmitter();
 

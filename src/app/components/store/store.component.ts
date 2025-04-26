@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { IProduct } from '../../services/product/product.model';
+import { Category, Product } from '../../services/product/product.model';
 import { ProductService } from '../../services/product/product.service';
 import { CartModalComponent } from '../modals/cart-modal/cart-modal.component';
 import { ProductListComponent } from '../product-list/product-list.component';
@@ -20,15 +20,15 @@ import { ProductListComponent } from '../product-list/product-list.component';
   styleUrl: './store.component.css',
 })
 export class StoreComponent {
-  products: IProduct[] = [];
-  productId: string = '';
-  errorMessage: string = '';
-
-  isCartOpen: boolean = false;
-
+  products: Product[] = [];
+  filteredProducts: Product[] = [];
+  categories = Object.values(Category);
+  selectedCategory: string = '';
   sortOption: string = 'name';
+  isCartOpen: boolean = false;
+  minPrice: number | null = null;
+  maxPrice: number | null = null;
   searchTerm: string = '';
-  filteredProducts: IProduct[] = [];
 
   constructor(private productService: ProductService) {}
 
@@ -43,7 +43,7 @@ export class StoreComponent {
         this.filteredProducts = products;
       },
       error: (err) => {
-        this.errorMessage = err.message;
+        console.error(err.message);
       },
       complete: () => {
         this.sortProducts();
@@ -74,5 +74,24 @@ export class StoreComponent {
     this.filteredProducts = this.products.filter((product) =>
       product.title.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+
+  filterByPrice(): void {
+    this.filteredProducts = this.filteredProducts.filter((product) => {
+      const meetsMinPrice = this.minPrice
+        ? product.price >= this.minPrice
+        : true;
+      const meetsMaxPrice = this.maxPrice
+        ? product.price <= this.maxPrice
+        : true;
+      return meetsMinPrice && meetsMaxPrice;
+    });
+  }
+
+  filterByCategory(): void {
+    this.filteredProducts = this.products.filter((product) =>
+      this.selectedCategory ? product.category === this.selectedCategory : true
+    );
+    this.filterByPrice(); // Apply price filter after category filter
   }
 }

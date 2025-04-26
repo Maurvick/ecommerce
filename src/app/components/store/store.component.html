@@ -1,7 +1,64 @@
-<!--TODO: Add ai nonsense-->
+<!--TODO: Add AI recommendation system -->
+
+<hr />
+
+<div class="store-container">
+  <aside class="sidebar">
+    <h3>Filters</h3>
+
+    <div class="filter-group">
+      <label>Category</label>
+      <select [(ngModel)]="selectedCategory">
+        <option value="">All</option>
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label>Price Range</label>
+      <input
+        type="number"
+        [(ngModel)]="minPrice"
+        placeholder="Min Price"
+        (input)="filterByPrice()"
+      />
+      <input
+        type="number"
+        [(ngModel)]="maxPrice"
+        placeholder="Max Price"
+        (input)="filterByPrice()"
+      />
+    </div>
+  </aside>
+
+  <div class="main-content">
+    <div class="search-container">
+      <div class="search">
+        <input
+          [(ngModel)]="searchTerm"
+          (input)="searchProducts()"
+          placeholder="Search..."
+        />
+      </div>
+
+      <div class="sorting">
+        <button class="button-rounded">New</button>
+        <button class="button-rounded">Price Ascending</button>
+        <button class="button-rounded">Price Descending</button>
+        <button class="button-rounded">Rating</button>
+      </div>
+    </div>
+
+    <div class="product-list-container">
+      <app-product-list [products]="filteredProducts"></app-product-list>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="cart">
-    <h1>Products</h1>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -20,29 +77,7 @@
     </svg>
   </div>
 
-  <div class="search">
-    <input
-      [(ngModel)]="searchTerm"
-      (input)="searchProducts()"
-      placeholder="Search..."
-    />
-  </div>
-
-  <div class="sorting">
-    <select name="sort" [(ngModel)]="sortOption" (change)="sortProducts()">
-      <option value="name">Sort by Name</option>
-      <option value="price">Sort by Price</option>
-    </select>
-    <div class="filters">
-      <button>Filters</button>
-    </div>
-  </div>
-
-  <app-product-list [products]="filteredProducts"></app-product-list>
-
   <app-cart-modal *ngIf="isCartOpen" (close)="closeCart()"></app-cart-modal>
 
-  <div class="pagination">
-    <!--TODO: Pagination-->
-  </div>
+  <div class="pagination"></div>
 </div>

@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 
-import { IProduct } from '../product/product.model';
+import { Product } from '../product/product.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  cartItems: IProduct[] = [];
+  cartItems: Product[] = [];
 
   constructor() {}
 
-  addToCart(product: IProduct): void {
+  addToCart(product: Product): void {
     this.cartItems.push(product);
   }
 
-  removeFromCart(product: IProduct): void {
+  removeFromCart(product: Product): void {
     this.cartItems = this.cartItems.filter((item) => item.id !== product.id);
   }
 
@@ -28,7 +28,7 @@ export class CartService {
     return totalPrice;
   }
 
-  getCartItems(): IProduct[] {
+  getCartItems(): Product[] {
     return this.cartItems;
   }
 }

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { CartService } from '../../services/cart/cart.service';
-import { IProduct } from '../../services/product/product.model';
+import { Product } from '../../services/product/product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +14,7 @@ import { IProduct } from '../../services/product/product.model';
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
-  @Input() products: IProduct[] = [];
+  @Input() products: Product[] = [];
 
   productId: string = '';
 
@@ -28,11 +28,11 @@ export class ProductListComponent {
     });
   }
 
-  addToCart(product: IProduct): void {
+  addToCart(product: Product): void {
     this.cart.addToCart(product);
   }
 
-  getCartItems(): IProduct[] {
+  getCartItems(): Product[] {
     return this.cart.getCartItems();
   }
 
@@ -40,7 +40,7 @@ export class ProductListComponent {
     this.router.navigate(['/product/id', id]);
   }
 
-  isProductInCart(product: IProduct): boolean {
+  isProductInCart(product: Product): boolean {
     return this.getCartItems().includes(product);
   }
 }

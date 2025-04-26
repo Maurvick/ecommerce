@@ -1,12 +1,86 @@
-.search input {
-  width: 99%;
-  padding: 10px;
-  border: 1px solid #ccc;
+.store-container {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Sidebar takes 250px, main content takes the rest */
+  gap: 10px; /* Add spacing between the sidebar and main content */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.sidebar {
+  width: 100%; /* Ensure the sidebar takes up its grid column */
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Make the sidebar sticky */
+  top: 20px; /* Add spacing from the top of the viewport */
+  height: fit-content; /* Ensure the sidebar only takes up as much space as needed */
+  min-height: 650px;
+}
+
+.sidebar h3 {
+  margin-bottom: 15px; /* Adjust spacing below the heading */
+}
+
+.filter-group {
+  margin-bottom: 15px; /* Reduce spacing between filter groups */
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.filter-group input,
+.filter-group select {
+  width: 90%; /* Ensure inputs and selects take up full width */
+  padding: 8px;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  gap: 10px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 50px;
+}
+
+.search input {
+  width: 90%;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  margin-right: 50px;
+}
+
+.sorting {
+  display: flex;
+  gap: 10px;
+}
+
+.sorting button {
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+}
+
+.sorting button:hover {
+  background-color: var(--button-hover-bg-color);
+  color: var(--button-hover-text-color);
 }
 
 .cart {
@@ -16,7 +90,7 @@
 }
 
 .cart span {
-  border: 2px solid #ccc;
+  border: 2px solid var(--border-color);
   padding: 5px;
 }
 
@@ -25,16 +99,6 @@ svg {
   height: auto;
   border: 1px solid #ccc;
   padding: 10px;
-  border-radius: 5px;
+  border: 1px solid var(--border-color);
   cursor: pointer;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-}
-
-.sorting {
-  display: flex;
-  margin-top: 10px;
-  gap: 5px;
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { IProduct } from './product.model';
+import { Product } from './product.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -11,13 +11,13 @@ export class ProductService {
     let params = {
       limit: limit,
     };
-    return this.httpClient.get<IProduct[]>(
+    return this.httpClient.get<Product[]>(
       'https://fakestoreapi.com/products/',
       { params }
     );
   }
 
   getAllProducts() {
-    return this.httpClient.get<IProduct[]>('https://fakestoreapi.com/products');
+    return this.httpClient.get<Product[]>('https://fakestoreapi.com/products');
   }
 }
