@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
 
+# Screenshot
+
+![image](https://github.com/user-attachments/assets/d50f7094-b5c9-4930-841c-d66eb9e362a5)
+
+
 # Demo 
 
 https://maurvick.github.io/ecommerce/
